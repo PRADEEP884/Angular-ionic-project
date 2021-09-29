@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-item color="tertiary" lines="none">
+  	<h4 class="title">Select</h4>
+  </ion-item>
+</ion-header>
+
+<ion-content>
+<br><br><br>
+
+<ion-grid>
+	<ion-row>
+		<ion-col size-xs="6">
+			<img src="./assets/sitedown-panda.png" class="pic"  routerLink="/view-children" >
+			<br>
+			<h6>View Task</h6>
+		</ion-col>
+
+
+		<ion-col size-xs="6">
+			<img src="./assets/view-copy.png" class="pic" (click)="ReferralCode()">
+			<br>
+			<h6>Referral Code</h6>
+		</ion-col>
+	</ion-row>
+
+
+
+	<ion-row>
+
+		<ion-col size-xs="6">
+<!-- 			<img src="./assets/assignn.png" class="pic" (click)="watcher()">
+ -->						<img src="./assets/assignn.png" class="pic" (click)="ChildrenList()">
+ <br>
+<h6 class="name">Children List</h6>
+			
+		</ion-col>
+
+
+		<ion-col size-xs="6">
+			
+			<img src="./assets/study-panda.png" class="pic" routerLink="/parents-invite"> 
+<br>
+<h6 class="name">YouTube Insists</h6>
+		</ion-col>
+	</ion-row>
+</ion-grid>
+
+<div class="alert alert-danger" role="alert" *ngIf="disallow">
+ Children can't open this page!
+</div>
+<br>
+<!-- <div style="text-align: center;font-size: 12px; color: #fff; font-family: Montserrat, sans-serif;">ABOUT</div>
+<br> -->
+<div  routerLink="/about" style="text-align: -webkit-center;"><p class="about">ABOUT MYKO</p></div>
+
+</ion-content>

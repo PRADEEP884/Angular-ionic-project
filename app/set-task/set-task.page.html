@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-item lines="none" color="tertiary">
+  <h6 class="title">Set Tasks</h6>
+ </ion-item>
+ </ion-header>
+
+<ion-content>
+	<br>
+	<div style="text-align: center;">
+		<img src="./assets/task.jpg" class="pic">
+	</div>
+		<br>
+
+<ion-grid>
+	<ion-row>
+          <ion-col size-xs="4">
+	       <h6>Task Content :</h6>
+          </ion-col>
+
+
+
+		<ion-col size-xs="8">
+			<ion-input class="input1" [(ngModel)]="task.description"  name="description"></ion-input>
+		</ion-col>
+     </ion-row>
+
+
+
+	<ion-row>
+          <ion-col size-xs="4">
+	       <h6>Starting Time :</h6>
+          </ion-col>
+
+
+		<ion-col size-xs="8">
+	<h5><ion-datetime displayFormat="HH:mm A"  placeholder="TIME" [(ngModel)]="task.time"  name="time">
+	</ion-datetime></h5>
+
+		</ion-col>
+</ion-row>
+
+
+	<ion-row>
+		<ion-col size-xs="4">
+	       <h6>End Time :</h6>
+          </ion-col>
+
+
+
+		<ion-col size-xs="8">
+	<h5><ion-datetime displayFormat="HH:mm A"  placeholder="TIME" [(ngModel)]="task.taskTime"  name="taskTime"></ion-datetime></h5>
+		</ion-col>
+     </ion-row>
+
+
+
+<ion-row>
+	<ion-col>
+  <div>
+    <h6 class="time">Screen Time Reward</h6>
+  </div>
+</ion-col>
+</ion-row>
+
+
+  <ion-row>
+          <ion-col size-xs="6">
+         <h6>Reward Time :</h6>
+          </ion-col>
+
+
+    <ion-col size-xs="6">
+  <h5><ion-datetime displayFormat="mm"  placeholder="TIME" [(ngModel)]="task.screenTime"  name="screenTime"></ion-datetime></h5>
+    </ion-col>
+</ion-row>
+
+
+   </ion-grid>
+
+
+<div style="text-align: center;">
+	<button class="custom-btn btn-8" (click)="confirm()"><span>Add Task</span></button>
+</div>
+</ion-content>

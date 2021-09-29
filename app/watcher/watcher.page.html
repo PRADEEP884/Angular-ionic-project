@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-item color="tertiary" lines="none">
+  	<h6 class="title">Watcher</h6>
+  </ion-item>
+</ion-header>
+
+<ion-content>
+ <!-- <div style="background-image: url('./assets/2.jpg'); background-position: center; 
+  background-repeat: no-repeat; background-size: cover; "> -->
+  <br>
+	<img src="../assets/panda-music.jpg" class="pic">
+	<br>
+	
+<h6 class="child-list">Children List :</h6>
+<ion-grid>
+	<ion-row>
+		<ion-col size-xs="8">
+			<ion-input class="input1" [(ngModel)]="filterTerm" animated="true"></ion-input>
+		</ion-col>
+
+
+          <ion-col size-xs="4">
+        <button class="custom-btn btn-8"><span >Search</span></button>
+          </ion-col>
+     </ion-row>
+
+
+<br>
+	<ion-row style="border: 2px solid #fff; border-radius: 20px;" >
+		<ion-col>
+			<h6 (click) = getchildrenId(i._id) *ngFor="let i of result | filter:filterTerm">{{i.name}}</h6>
+		</ion-col>
+	</ion-row>
+</ion-grid>
+<!-- </div> -->
+</ion-content>

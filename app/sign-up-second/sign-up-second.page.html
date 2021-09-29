@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-item lines="none" color="tertiary">
+  <h6 class="title">Sign In</h6>
+ </ion-item>
+ </ion-header>
+
+<ion-content>
+  <img src="../assets/logo-with-text.png" class="img">
+  <br><br><br>
+  <br><br><br><br>
+  <br><br>
+
+
+  <form id="form" [formGroup]="signupForm" >
+  <ion-item class="e1" >
+    <ion-input formControlName="name" type="text" placeholder="Name"  style="font-family: 'Montserrat', sans-serif;"></ion-input>
+  </ion-item>
+  <div class="error messages" >
+    <ng-container *ngFor="let error of error_messages.name">
+      <div class="error-message" *ngIf="signupForm.get('name').hasError(error.type)&&(signupForm.get('name').dirty || signupForm.get('name').touched)">
+     {{error.message}}
+    </div>
+   </ng-container>
+  </div>
+  <ion-item class="p1" >
+    <ion-input formControlName="password"  type="password" placeholder="Password"  style="font-family: 'Montserrat', sans-serif;"></ion-input>
+  </ion-item>
+  <div class="error messages">
+    <ng-container *ngFor="let error of error_messages.password">
+      <div class="error-message" *ngIf="signupForm.get('password').hasError(error.type)&&(signupForm.get('password').dirty || signupForm.get('password').touched)">
+     {{error.message}}
+    </div>
+   </ng-container>
+  </div>
+
+
+  
+<ion-grid>
+	<ion-row>
+		<ion-col size-xs="6">        
+ <button class="custom-btn btn-8" style="float: right; outline: none;" (click)="signin()"><span>SIGN IN</span></button>
+		</ion-col>
+
+
+		<ion-col size-xs="6">
+<button class="custom-btn btn-8" style="float:left; outline: none;" routerLink='/sing-up-first'><span>SIGN UP</span></button>
+		</ion-col>
+	</ion-row>
+
+
+
+	<ion-row>
+		<ion-col size-xs="3">
+		</ion-col>
+
+
+		<ion-col size-xs="9">
+   <ion-checkbox color="primary" checked></ion-checkbox>&nbsp;
+    <h6 class="check-text">Remember Password</h6>
+		</ion-col>
+	</ion-row>
+</ion-grid>
+
+
+   <div class="row"  *ngIf="showMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-success">
+              <strong> Success!</strong> 
+          </p>
+        </div>
+      </div>
+
+
+
+
+       <div class="row"  *ngIf="showFailMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-danger">
+              <strong>Failed !</strong> 
+          </p>
+        </div>
+      </div>
+        </form>
+</ion-content>

@@ -1,0 +1,63 @@
+<!-- <ion-header>
+  <ion-item lines="none" color="tertiary">
+  <h6 class="title">View Tasks</h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  	<ion-icon name="ellipsis-vertical-outline" slot="end" (click)="option()" *ngIf="hide"></ion-icon>
+  	<div *ngIf="show">
+	<h6 routerLink="/parents-invite">Processing Request</h6>
+</div>
+ </ion-item>
+ </ion-header>
+
+
+
+<ion-content>
+  <div class="heading">
+    <h1>MY TASKS</h1>
+    <p>Don't wait for your next reminder.Follow MYKO on their exciting journey!</p>
+
+  </div>
+
+
+  <ion-grid>
+	<ion-row>
+		<ion-col size-xs="8">
+			<ion-input placeholder="Otp" class="input1"></ion-input>
+		</ion-col>
+
+
+
+		<ion-col size-xs="4">
+			<button class="custom-btn btn-8" style=" outline: none;float: right;"><span>Submit</span></button>
+		</ion-col>
+	</ion-row>
+</ion-grid>
+</ion-content> -->
+
+
+<ion-header>
+  <ion-item lines="none" color="tertiary">
+  	<ion-icon name="arrow-back-outline" routerLink="/select"></ion-icon>&nbsp;&nbsp;&nbsp;
+  	 <h6 class="title">Parent Referral Code</h6>
+  </ion-item>
+</ion-header>
+
+<ion-content>
+	<br><br>
+<!-- 	<img src="./assets/referral1.jpg" class="pic">
+ -->	
+
+ <div class="coupon">
+  <div class="container">
+    <h3>Parent Referral Code</h3>
+  </div>
+  <img  src="./assets/referral1.jpg" alt="Avatar" style="width:100%;">
+  <div class="container" >
+  	<p>Name: <span class="promo">{{result?.name || none}}</span></p>
+    <p>Code: <span class="promo">{{result?.ParentCode || none}}</span></p>
+
+  </div>
+</div>
+<div>
+</div>
+
+</ion-content>

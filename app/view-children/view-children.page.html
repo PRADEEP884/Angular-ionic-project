@@ -1,0 +1,151 @@
+<ion-header>
+  <ion-item lines="none" color="tertiary">
+  <h6 class="title">View Tasks</h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <ion-icon name="ellipsis-vertical-outline" slot="end"></ion-icon>
+ </ion-item>
+ </ion-header>
+
+
+<ion-content>
+  <div class="heading">
+      <h1>MY TASKS</h1>
+     <p>Don't wait for your next reminder.Follow MYKO on their exciting journey!</p>
+  </div>
+  <br>
+
+  <ion-grid>
+     <div *ngIf="parentenable">
+       <ion-row>
+           <ion-col size-xs="12"  *ngFor="let item of combinedArray | slice:1 ;let i=index">
+               <div *ngIf="isTaskAvailiable" style="border: 2px solid #fff; border-radius: 18px;">
+
+          
+          <ion-grid>
+               <div class="row1">
+            <ion-row >
+                  <ion-col size-xs="4">
+                            <h4 >Child Name</h4>
+                    </ion-col>
+
+                  
+                  <ion-col size-xs="8">
+                      <h3> : {{item?.child?.name}}</h3>
+                  </ion-col>
+               </ion-row>
+              
+              <ion-row>
+                <ion-col size-xs="4">
+                       <h4 >Reward Time</h4>
+               </ion-col>
+
+    
+             <ion-col size-xs="8">
+                 <h3> : {{item?.tasklist?.screenTime  | date: 'mm'}} Minutes</h3>
+             </ion-col>
+        </ion-row>
+</div>
+<br>
+
+  <ion-row>
+       <ion-col size-xs="3">
+           <img src="../assets/eat-food.png" class="img">
+        </ion-col>
+  
+
+  <ion-col size-xs="9" class="task">
+    <h6 style="font-size: 16.5px; font-weight: 600;" >Your Task : {{item?.tasklist?.description}}</h6><br>
+    <h6 style="font-size: 15px;">Starting Time :  {{item?.tasklist?.time  | date: 'HH:mm a'}}</h6><br>
+    <h6 style="font-size: 15px;">Ending Time :    {{item?.tasklist?.taskTime   | date: 'HH:mm a'}}</h6>
+    <br>
+   <div style="text-align: center;">
+         <h6  *ngIf="i.isActive && i.isDone" class="alert alert-success">Completed</h6>
+       </div>
+
+    <div *ngIf="i.isActive && !i.isDone" style="text-align: center;" > 
+            <h6 class="alert alert-primary">In-Progress</h6>
+      </div>
+  </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
+   <div style="text-align: center;">
+     <button class="custom-btn btn-8" (click)="SingleRate(item?.child?._id)"><span>Check Progress</span></button>&nbsp;&nbsp;
+  </div>
+<br>
+</div>
+</ion-col>
+</ion-row>
+</div>
+
+
+
+
+<div *ngIf="!parentenable">
+     <ion-row>
+           <ion-col size-xs="12"  *ngFor="let i of totaltask;let j =  index;">
+              <div *ngIf="isTaskAvailiable" style="border: 2px solid #fff; border-radius: 18px;">
+
+         
+         <ion-grid>
+            <div class="row1">
+                    <ion-row>
+                          <ion-col size-xs="6">
+                               <h4 >Reward Time</h4>
+                           </ion-col>
+
+  
+                          <ion-col size-xs="6">
+                              <h3> : {{i.screenTime   | date: 'mm'}} Minutes</h3>
+                           </ion-col>
+                    </ion-row>
+            </div>
+<br>
+
+            <ion-row>
+                  <ion-col size-xs="3">
+                    <img src="../assets/eat-food.png" class="img">
+                 </ion-col>
+
+
+ <ion-col size-xs="9" class="task">
+    <h6 style="font-size: 16.5px; font-weight: 600;" >Your Task : {{i.description }}</h6><br>
+    <h6 style="font-size: 15px;">Starting Time :  {{i.time  | date: 'HH:mm a'}}</h6><br>
+    <h6 style="font-size: 15px;">Ending Time :    {{i.taskTime  | date: 'HH:mm a'}}</h6>
+    <br>
+    <div style="text-align: center;">
+         <h6  *ngIf="i.isActive && i.isDone" class="alert alert-success">Completed</h6>
+       </div>
+  <div *ngIf="i.isActive && !i.isDone" style="text-align: center;" > 
+   <h6 class="alert alert-primary">In-Progress</h6> 
+</div>
+</ion-col>
+</ion-row>
+</ion-grid>
+
+
+
+    <div style="text-align: center;">
+      <button class="custom-btn btn-8" (click)="taskRate(i)" *ngIf="!i.isActive && !i.isDone "><span>Mark Progress</span>
+         </button>&nbsp;&nbsp;
+       <button class="custom-btn btn-8" (click)="presentAlert(i)" *ngIf=" i.isActive && !i.isDone "><span>Mark Done</span></button>
+       <button class="custom-btn btn-8" routerLink="/progress"><span>Check Progress</span></button>&nbsp;&nbsp;
+     <br>
+   </div>
+<br>
+</div>
+</ion-col>
+</ion-row>
+</div>
+</ion-grid>
+
+
+    <br>
+      <div class="row" *ngIf="!isTaskAvailiable" style="text-align: center;">
+          <div>
+            <strong class="alert alert-danger"> Please Add task !</strong> 
+        </div>
+      </div>
+      <br>
+ </ion-content>
